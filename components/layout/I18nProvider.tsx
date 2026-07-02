@@ -24,6 +24,7 @@ const STORAGE_LANGUAGE = "spiralis-language";
 const STORAGE_THEME = "spiralis-theme";
 
 const ignoredTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION"]);
+const skipTranslationSelector = "[data-no-translate='true']";
 
 function getInitialTheme(): ThemeMode {
   if (typeof window === "undefined") {
@@ -66,11 +67,24 @@ function applyDocumentChrome(language: LanguageCode, theme: ThemeMode) {
   document.documentElement.dataset.theme = theme;
 }
 
+function shouldSkipTranslation(element: Element | null) {
+  if (!element) {
+    return false;
+  }
+
+  if (element.closest(skipTranslationSelector)) {
+    return true;
+  }
+
+  return element.tagName.includes("-");
+}
+
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [language, setLanguageState] = useState<LanguageCode>("fr");
   const [theme, setTheme] = useState<ThemeMode>("light");
   const sourceTextByNode = useRef(new WeakMap<Text, string>());
+  const sourceAttributesByElement = useRef(new WeakMap<Element, Map<string, string>>());
   const hasLoadedPreferences = useRef(false);
 
   useEffect(() => {
@@ -98,9 +112,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, [language, theme]);
 
   useEffect(() => {
+    const translatableAttributes = ["aria-label", "title", "placeholder", "alt"] as const;
+
     const translateTextNode = (node: Text) => {
       const parent = node.parentElement;
-      if (!parent || ignoredTags.has(parent.tagName)) {
+      if (!parent || ignoredTags.has(parent.tagName) || shouldSkipTranslation(parent)) {
         return;
       }
 
@@ -122,7 +138,47 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       node.nodeValue = `${leading}${translated}${trailing}`;
     };
 
+    const translateElementAttributes = (element: Element) => {
+      if (shouldSkipTranslation(element)) {
+        return;
+      }
+
+      let sourceAttributes = sourceAttributesByElement.current.get(element);
+      if (!sourceAttributes) {
+        sourceAttributes = new Map<string, string>();
+        sourceAttributesByElement.current.set(element, sourceAttributes);
+      }
+
+      for (const attributeName of translatableAttributes) {
+        const currentValue = element.getAttribute(attributeName);
+        if (!currentValue || !normalizeText(currentValue)) {
+          continue;
+        }
+
+        const source = sourceAttributes.get(attributeName) ?? normalizeText(currentValue);
+        sourceAttributes.set(attributeName, source);
+
+        const translated = getTranslation(source, language);
+        if (translated) {
+          element.setAttribute(attributeName, translated);
+        }
+      }
+    };
+
     const translateTree = (root: ParentNode) => {
+      if (root instanceof Element) {
+        if (shouldSkipTranslation(root)) {
+          return;
+        }
+
+        translateElementAttributes(root);
+        root.querySelectorAll("*").forEach((element) => {
+          if (!shouldSkipTranslation(element)) {
+            translateElementAttributes(element);
+          }
+        });
+      }
+
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       let node = walker.nextNode();
 
@@ -132,27 +188,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       }
     };
 
-    translateTree(document.body);
-
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            translateTextNode(node as Text);
-          }
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            translateTree(node as Element);
-          }
-        });
-      }
+    const frame = window.requestAnimationFrame(() => {
+      translateTree(document.body);
     });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => observer.disconnect();
+    return () => window.cancelAnimationFrame(frame);
   }, [language, pathname]);
 
   const value = useMemo<I18nContextValue>(

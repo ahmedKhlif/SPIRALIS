@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import {
   Box,
@@ -11,11 +11,13 @@ import {
   Rotate3D,
   ScanSearch,
   Sparkles,
+  Telescope,
   ZoomIn,
 } from "lucide-react";
 import { fallbackImages, modelPaths } from "@/lib/assets";
 import { IconBadge } from "@/components/sections/IconBadge";
 import { ModelFallback } from "@/components/three/ModelFallback";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ProductModelViewer = dynamic(
@@ -88,10 +90,32 @@ const viewers = [
 
 export function ProductModelTabs() {
   const [activeValue, setActiveValue] = useState(viewers[0].value);
-  const activeViewer = useMemo(
-    () => viewers.find((viewer) => viewer.value === activeValue) ?? viewers[0],
-    [activeValue],
-  );
+  const [canMountViewer, setCanMountViewer] = useState(false);
+  const [isViewerEnabled, setIsViewerEnabled] = useState(false);
+  const viewerAnchorRef = useRef<HTMLDivElement | null>(null);
+  const activeViewer = viewers.find((viewer) => viewer.value === activeValue) ?? viewers[0];
+
+  useEffect(() => {
+    const node = viewerAnchorRef.current;
+
+    if (!node || canMountViewer) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setCanMountViewer(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "240px 0px" },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [canMountViewer]);
 
   return (
     <Tabs
@@ -124,51 +148,84 @@ export function ProductModelTabs() {
         <IconBadge icon={ScanSearch} label="Details GLB" />
       </div>
 
-      {viewers.map((viewer) => (
-        <TabsContent key={viewer.value} value={viewer.value} className="mt-6">
-          <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_21rem]">
+      <TabsContent value={activeViewer.value} className="mt-6">
+        <div ref={viewerAnchorRef} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_21rem]">
+          {canMountViewer && isViewerEnabled ? (
             <ProductModelViewer
-              modelPath={viewer.modelPath}
-              fallbackImage={viewer.fallbackImage}
-              productName={viewer.name}
+              key={activeViewer.value}
+              modelPath={activeViewer.modelPath}
+              fallbackImage={activeViewer.fallbackImage}
+              productName={activeViewer.name}
             />
-            <aside className="grid content-start gap-4 rounded-[22px] border border-border-soft bg-background/78 p-4 shadow-sm backdrop-blur sm:p-5">
-              <div className="rounded-[18px] border border-border-soft bg-cream/70 p-4">
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-pale-green/70 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-deep-olive">
-                    <Sparkles className="h-4 w-4" strokeWidth={1.5} />
-                    {viewer.step}
-                  </span>
-                  <span className="text-xs font-semibold text-text-dark/58">{viewer.size}</span>
+          ) : (
+            <div className="grid min-h-[430px] place-items-center overflow-hidden rounded-[22px] border border-border-soft bg-[radial-gradient(circle_at_50%_18%,var(--cream)_0%,var(--soft-beige)_52%,var(--pale-green)_100%)] p-6 text-center shadow-soft sm:min-h-[560px] sm:rounded-[28px]">
+              <div className="max-w-md space-y-4">
+                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-border-soft bg-background/80 text-deep-olive shadow-sm">
+                  <Telescope className="h-6 w-6" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-2xl font-semibold leading-tight text-deep-olive">
-                  {viewer.focus}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-text-dark/70">{viewer.detail}</p>
+                <div className="space-y-2">
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-bamboo">
+                    Studio 3D
+                  </p>
+                  <h3 className="font-heading text-3xl font-semibold leading-tight text-deep-olive">
+                    {activeViewer.name}
+                  </h3>
+                  <p className="text-sm leading-7 text-text-dark/70">
+                    {canMountViewer
+                      ? "Activez la 3D seulement quand vous voulez l'ouvrir pour garder la page fluide."
+                      : "Le viewer se charge uniquement quand cette zone entre dans l'ecran pour garder la page fluide."}
+                  </p>
+                </div>
+                {canMountViewer ? (
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <Button
+                      type="button"
+                      onClick={() => setIsViewerEnabled(true)}
+                      className="min-w-[13rem]"
+                    >
+                      Explorer en 3D
+                    </Button>
+                  </div>
+                ) : null}
               </div>
+            </div>
+          )}
+          <aside className="grid content-start gap-4 rounded-[22px] border border-border-soft bg-background/78 p-4 shadow-sm backdrop-blur sm:p-5">
+            <div className="rounded-[18px] border border-border-soft bg-cream/70 p-4">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full bg-pale-green/70 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-deep-olive">
+                  <Sparkles className="h-4 w-4" strokeWidth={1.5} />
+                  {activeViewer.step}
+                </span>
+                <span className="text-xs font-semibold text-text-dark/58">{activeViewer.size}</span>
+              </div>
+              <h3 className="font-heading text-2xl font-semibold leading-tight text-deep-olive">
+                {activeViewer.focus}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-text-dark/70">{activeViewer.detail}</p>
+            </div>
 
-              <div className="grid gap-3">
-                <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
-                  <Box className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
-                  <span className="text-sm font-semibold text-deep-olive">{viewer.file}</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
-                  <Layers3 className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
-                  <span className="text-sm font-semibold text-deep-olive">{viewer.finish}</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
-                  <Hand className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
-                  <span className="text-sm font-semibold text-deep-olive">Glisser pour orienter</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
-                  <Clock3 className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
-                  <span className="text-sm font-semibold text-deep-olive">Rotation douce en idle</span>
-                </div>
+            <div className="grid gap-3">
+              <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
+                <Box className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
+                <span className="text-sm font-semibold text-deep-olive">{activeViewer.file}</span>
               </div>
-            </aside>
-          </div>
-        </TabsContent>
-      ))}
+              <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
+                <Layers3 className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
+                <span className="text-sm font-semibold text-deep-olive">{activeViewer.finish}</span>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
+                <Hand className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
+                <span className="text-sm font-semibold text-deep-olive">Glisser pour orienter</span>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl border border-border-soft bg-cream/60 px-4 py-3">
+                <Clock3 className="h-5 w-5 text-deep-olive" strokeWidth={1.5} />
+                <span className="text-sm font-semibold text-deep-olive">Rotation douce en idle</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </TabsContent>
     </Tabs>
   );
 }

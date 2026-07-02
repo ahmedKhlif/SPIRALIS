@@ -742,6 +742,581 @@ const exactTranslations: Record<string, Translation> = {
     "See what is working behind each step",
     "شاهد ما يعمل خلف كل خطوة",
   ),
+  "Une entree claire dans la routine botanique anti-imperfections.": entry(
+    "Une entree claire dans la routine botanique anti-imperfections.",
+    "A clear entry into the botanical blemish-care routine.",
+    "مدخل واضح إلى الروتين النباتي المضاد للشوائب.",
+  ),
+  "Routine botanique anti-imperfections pour peaux mixtes a grasses.": entry(
+    "Routine botanique anti-imperfections pour peaux mixtes a grasses.",
+    "Botanical blemish-care routine for combination to oily skin.",
+    "روتين نباتي مضاد للشوائب للبشرة المختلطة إلى الدهنية.",
+  ),
+  "Decouvrir les trois soins complementaires": entry(
+    "Decouvrir les trois soins complementaires",
+    "Discover the three complementary products",
+    "اكتشف العلاجات الثلاثة المتكاملة",
+  ),
+  "Les trois soins essentiels et la recharge dans une meme lecture.": entry(
+    "Les trois soins essentiels et la recharge dans une meme lecture.",
+    "The three essential products and the refill in one clear view.",
+    "العلاجات الأساسية الثلاثة وإعادة التعبئة في قراءة واحدة واضحة.",
+  ),
+  "Trois soins complementaires pour nettoyer, traiter et hydrater.": entry(
+    "Trois soins complementaires pour nettoyer, traiter et hydrater.",
+    "Three complementary products to cleanse, treat, and hydrate.",
+    "ثلاثة علاجات متكاملة للتنظيف والمعالجة والترطيب.",
+  ),
+  "Passer de la gamme au rituel matin ou soir": entry(
+    "Passer de la gamme au rituel matin ou soir",
+    "Move from the range to the morning or evening ritual",
+    "انتقل من المجموعة إلى طقس الصباح أو المساء",
+  ),
+  "Le geste juste, au bon moment, pour garder une routine lisible.": entry(
+    "Le geste juste, au bon moment, pour garder une routine lisible.",
+    "The right gesture at the right moment to keep the routine easy to follow.",
+    "الخطوة المناسبة في الوقت المناسب للحفاظ على روتين واضح وسهل.",
+  ),
+  "Les ingredients cles expliques sans surcharger la lecture.": entry(
+    "Les ingredients cles expliques sans surcharger la lecture.",
+    "Key ingredients explained without overloading the reading.",
+    "شرح للمكونات الأساسية من دون إثقال القراءة.",
+  ),
+  "Decouvrir le geste responsable de la gamme": entry(
+    "Decouvrir le geste responsable de la gamme",
+    "Discover the responsible gesture behind the range",
+    "اكتشف الخطوة المسؤولة في هذه المجموعة",
+  ),
+  "Le systeme rechargeable donne une suite concrete a la routine.": entry(
+    "Le systeme rechargeable donne une suite concrete a la routine.",
+    "The refillable system gives the routine a concrete continuation.",
+    "نظام إعادة التعبئة يمنح الروتين امتدادًا عمليًا وملموسًا.",
+  ),
+  "Reutiliser le pot, reduire les dechets, garder un geste simple.": entry(
+    "Reutiliser le pot, reduire les dechets, garder un geste simple.",
+    "Reuse the jar, reduce waste, keep the gesture simple.",
+    "أعد استخدام العبوة، قلل النفايات، وحافظ على خطوة بسيطة.",
+  ),
+  "Une vue plus technique et immersive des packagings SPIRALIS.": entry(
+    "Une vue plus technique et immersive des packagings SPIRALIS.",
+    "A more technical and immersive view of SPIRALIS packaging.",
+    "رؤية أكثر تقنية وغامرة لتغليفات SPIRALIS.",
+  ),
+  "Tourner, zoomer et inspecter les volumes avant les modeles GLB finaux.": entry(
+    "Tourner, zoomer et inspecter les volumes avant les modeles GLB finaux.",
+    "Rotate, zoom, and inspect the volumes before the final GLB models.",
+    "قم بالتدوير والتكبير وتفحص الأحجام قبل النماذج النهائية بصيغة GLB.",
+  ),
+  "Revenir a la gamme": entry(
+    "Revenir a la gamme",
+    "Back to the range",
+    "العودة إلى المجموعة",
+  ),
+  "Reconnecter l'experience 3D au parcours produit": entry(
+    "Reconnecter l'experience 3D au parcours produit",
+    "Reconnect the 3D experience to the product journey",
+    "أعد ربط التجربة ثلاثية الأبعاد بمسار المنتج",
+  ),
+  "La vision de marque, la matiere botanique et l'intention packaging.": entry(
+    "La vision de marque, la matiere botanique et l'intention packaging.",
+    "The brand vision, botanical material, and packaging intent.",
+    "رؤية العلامة والمادة النباتية ونية التصميم في التغليف.",
+  ),
+  "Une marque inspiree de la nature, du minimalisme et d'un design responsable.": entry(
+    "Une marque inspiree de la nature, du minimalisme et d'un design responsable.",
+    "A brand inspired by nature, minimalism, and responsible design.",
+    "علامة مستوحاة من الطبيعة والبساطة والتصميم المسؤول.",
+  ),
+  "Les questions utiles, le formulaire et les points de contact sont regroupes ici.": entry(
+    "Les questions utiles, le formulaire et les points de contact sont regroupes ici.",
+    "Useful questions, the form, and contact points are gathered here.",
+    "الأسئلة المفيدة والنموذج ووسائل التواصل مجمعة هنا.",
+  ),
+  "Questions de routine, disponibilite ou univers SPIRALIS: tout commence ici.": entry(
+    "Questions de routine, disponibilite ou univers SPIRALIS: tout commence ici.",
+    "Routine questions, availability, or the SPIRALIS universe: it all starts here.",
+    "أسئلة الروتين أو التوفر أو عالم SPIRALIS: كل شيء يبدأ هنا.",
+  ),
+  "Explorer la gamme": entry(
+    "Explorer la gamme",
+    "Explore the range",
+    "استكشف المجموعة",
+  ),
+  "Repartir vers les produits apres la prise de contact": entry(
+    "Repartir vers les produits apres la prise de contact",
+    "Return to the products after getting in touch",
+    "ارجع إلى المنتجات بعد التواصل",
+  ),
+  "Le premier geste de la routine: nettoyer sans deshydrater.": entry(
+    "Le premier geste de la routine: nettoyer sans deshydrater.",
+    "The first step of the routine: cleanse without stripping moisture.",
+    "أول خطوة في الروتين: نظف من دون تجفيف البشرة.",
+  ),
+  "Gel nettoyant anti-imperfections: purifier, rafraichir et preparer la peau.": entry(
+    "Gel nettoyant anti-imperfections: purifier, rafraichir et preparer la peau.",
+    "Blemish-care cleansing gel: purify, refresh, and prepare the skin.",
+    "جل تنظيف مضاد للشوائب: ينقي وينعش ويهيئ البشرة.",
+  ),
+  "Voir comment integrer le gel dans la routine du matin": entry(
+    "Voir comment integrer le gel dans la routine du matin",
+    "See how to fit the cleansing gel into the morning routine",
+    "اكتشف كيفية إدخال الجل في روتين الصباح",
+  ),
+  "Le soin cible qui prend la place centrale dans la routine.": entry(
+    "Le soin cible qui prend la place centrale dans la routine.",
+    "The targeted treatment that takes center stage in the routine.",
+    "العلاج الموجه الذي يحتل مكانه الأساسي في الروتين.",
+  ),
+  "Serum anti-imperfections: traiter les zones visibles avec une texture legere.": entry(
+    "Serum anti-imperfections: traiter les zones visibles avec une texture legere.",
+    "Blemish-care serum: treat visible areas with a lightweight texture.",
+    "سيروم مضاد للشوائب: يعالج المناطق الظاهرة بقوام خفيف.",
+  ),
+  "Voir comment le serum s'insere dans le rituel du soir": entry(
+    "Voir comment le serum s'insere dans le rituel du soir",
+    "See how the serum fits into the evening ritual",
+    "اكتشف كيف يندمج السيروم في طقس المساء",
+  ),
+  "Le dernier geste pour hydrater legerement et garder le confort cutane.": entry(
+    "Le dernier geste pour hydrater legerement et garder le confort cutane.",
+    "The final step to hydrate lightly and preserve skin comfort.",
+    "الخطوة الأخيرة للترطيب الخفيف والحفاظ على راحة البشرة.",
+  ),
+  "Creme hydratante anti-imperfections: confort, equilibre et compatibilite recharge.": entry(
+    "Creme hydratante anti-imperfections: confort, equilibre et compatibilite recharge.",
+    "Blemish-care moisturizer: comfort, balance, and refill compatibility.",
+    "كريم مرطب مضاد للشوائب: راحة وتوازن وتوافق مع إعادة التعبئة.",
+  ),
+  "Comprendre l'usage rechargeable de la creme": entry(
+    "Comprendre l'usage rechargeable de la creme",
+    "Understand the cream's refillable use",
+    "افهم استخدام الكريم القابل لإعادة التعبئة",
+  ),
+  "Quatre soins a explorer en 3D": entry(
+    "Quatre soins a explorer en 3D",
+    "Four products to explore in 3D",
+    "أربعة منتجات لاستكشافها ثلاثي الأبعاد",
+  ),
+  "Rotation douce, zoom libre et cadrage automatique": entry(
+    "Rotation douce, zoom libre et cadrage automatique",
+    "Gentle rotation, free zoom, and automatic framing",
+    "دوران هادئ وتكبير حر وتأطير تلقائي",
+  ),
+  "Une lecture claire des volumes et des details": entry(
+    "Une lecture claire des volumes et des details",
+    "A clear reading of volumes and details",
+    "قراءة واضحة للأحجام والتفاصيل",
+  ),
+  "Un studio interactif pour manipuler les vrais modeles GLB SPIRALIS, comparer les volumes et inspecter les details de chaque soin.": entry(
+    "Un studio interactif pour manipuler les vrais modeles GLB SPIRALIS, comparer les volumes et inspecter les details de chaque soin.",
+    "An interactive studio to handle real SPIRALIS GLB models, compare volumes, and inspect the details of each treatment.",
+    "استوديو تفاعلي للتعامل مع نماذج SPIRALIS الحقيقية بصيغة GLB ومقارنة الأحجام وفحص تفاصيل كل عناية.",
+  ),
+  "GLB live": entry(
+    "GLB live",
+    "Live GLB",
+    "نموذج GLB حي",
+  ),
+  "Rotation auto": entry(
+    "Rotation auto",
+    "Auto rotation",
+    "دوران تلقائي",
+  ),
+  "Zoom libre": entry(
+    "Zoom libre",
+    "Free zoom",
+    "تكبير حر",
+  ),
+  "Studio 3D interactif": entry(
+    "Studio 3D interactif",
+    "Interactive 3D studio",
+    "استوديو ثلاثي الأبعاد تفاعلي",
+  ),
+  "Etape 1": entry(
+    "Etape 1",
+    "Step 1",
+    "الخطوة 1",
+  ),
+  "Etape 2": entry(
+    "Etape 2",
+    "Step 2",
+    "الخطوة 2",
+  ),
+  "Etape 3": entry(
+    "Etape 3",
+    "Step 3",
+    "الخطوة 3",
+  ),
+  "Refill": entry(
+    "Refill",
+    "Refill",
+    "إعادة التعبئة",
+  ),
+  "Flacon vert transparent": entry(
+    "Flacon vert transparent",
+    "Transparent green bottle",
+    "عبوة خضراء شفافة",
+  ),
+  "Nettoyage et fraicheur": entry(
+    "Nettoyage et fraicheur",
+    "Cleansing and freshness",
+    "تنظيف وانتعاش",
+  ),
+  "Tournez le flacon pour inspecter le volume, la pompe et la silhouette du nettoyant.": entry(
+    "Tournez le flacon pour inspecter le volume, la pompe et la silhouette du nettoyant.",
+    "Rotate the bottle to inspect the volume, pump, and silhouette of the cleanser.",
+    "قم بتدوير العبوة لفحص الحجم والمضخة وشكل المنظف.",
+  ),
+  "Flacon soin fin": entry(
+    "Flacon soin fin",
+    "Slim treatment bottle",
+    "عبوة علاج رفيعة",
+  ),
+  "Traitement cible": entry(
+    "Traitement cible",
+    "Targeted treatment",
+    "علاج موجه",
+  ),
+  "Un modele plus fin pour lire la posture du serum dans la routine.": entry(
+    "Un modele plus fin pour lire la posture du serum dans la routine.",
+    "A slimmer model to read the serum's role within the routine.",
+    "نموذج أنحف لقراءة مكانة السيروم داخل الروتين.",
+  ),
+  "Pot avec finition bambou": entry(
+    "Pot avec finition bambou",
+    "Jar with bamboo finish",
+    "عبوة بلمسة خيزران",
+  ),
+  "Hydratation legere": entry(
+    "Hydratation legere",
+    "Lightweight hydration",
+    "ترطيب خفيف",
+  ),
+  "Inspectez le pot et son couvercle pour voir la logique premium rechargeable.": entry(
+    "Inspectez le pot et son couvercle pour voir la logique premium rechargeable.",
+    "Inspect the jar and lid to understand the premium refillable logic.",
+    "افحص العبوة وغطاءها لفهم منطقها الفاخر القابل لإعادة التعبئة.",
+  ),
+  "Capsule de recharge": entry(
+    "Capsule de recharge",
+    "Refill capsule",
+    "كبسولة إعادة تعبئة",
+  ),
+  "Systeme reutilisable": entry(
+    "Systeme reutilisable",
+    "Reusable system",
+    "نظام قابل لإعادة الاستخدام",
+  ),
+  "La recharge complete l'experience en montrant le geste responsable de la gamme.": entry(
+    "La recharge complete l'experience en montrant le geste responsable de la gamme.",
+    "The refill completes the experience by showing the range's responsible gesture.",
+    "تكمل إعادة التعبئة التجربة عبر إظهار الخطوة المسؤولة في المجموعة.",
+  ),
+  "Drag interactif": entry(
+    "Drag interactif",
+    "Interactive drag",
+    "سحب تفاعلي",
+  ),
+  "Details GLB": entry(
+    "Details GLB",
+    "GLB details",
+    "تفاصيل GLB",
+  ),
+  "Glisser pour orienter": entry(
+    "Glisser pour orienter",
+    "Drag to rotate",
+    "اسحب للتوجيه",
+  ),
+  "Rotation douce en idle": entry(
+    "Rotation douce en idle",
+    "Gentle idle rotation",
+    "دوران هادئ في وضع السكون",
+  ),
+  "Chargement du modele": entry(
+    "Chargement du modele",
+    "Loading model",
+    "جار تحميل النموذج",
+  ),
+  "Produit SPIRALIS": entry(
+    "Produit SPIRALIS",
+    "SPIRALIS product",
+    "منتج SPIRALIS",
+  ),
+  "Voir le detail": entry(
+    "Voir le detail",
+    "View details",
+    "شاهد التفاصيل",
+  ),
+  "Une capsule pratique pour reutiliser votre pot, reduire les dechets et ouvrir directement le detail produit depuis l'image.": entry(
+    "Une capsule pratique pour reutiliser votre pot, reduire les dechets et ouvrir directement le detail produit depuis l'image.",
+    "A practical capsule to reuse your jar, reduce waste, and open the product details directly from the image.",
+    "كبسولة عملية لإعادة استخدام العبوة وتقليل النفايات وفتح تفاصيل المنتج مباشرة من الصورة.",
+  ),
+  "Explorer la recharge": entry(
+    "Explorer la recharge",
+    "Explore the refill",
+    "استكشف إعادة التعبئة",
+  ),
+  Peau: entry(
+    "Peau",
+    "Skin",
+    "البشرة",
+  ),
+  "Ouvrir la navigation": entry(
+    "Ouvrir la navigation",
+    "Open navigation",
+    "افتح التنقل",
+  ),
+  "En ce moment": entry(
+    "En ce moment",
+    "Right now",
+    "الآن",
+  ),
+  "Acces rapide": entry(
+    "Acces rapide",
+    "Quick access",
+    "وصول سريع",
+  ),
+  "Continuez depuis": entry(
+    "Continuez depuis",
+    "Continue from",
+    "تابع انطلاقا من",
+  ),
+  "Prochaine etape": entry(
+    "Prochaine etape",
+    "Next step",
+    "الخطوة التالية",
+  ),
+  Recommande: entry(
+    "Recommande",
+    "Recommended",
+    "موصى به",
+  ),
+  Nom: entry(
+    "Nom",
+    "Name",
+    "الاسم",
+  ),
+  Email: entry(
+    "Email",
+    "Email",
+    "البريد الإلكتروني",
+  ),
+  Sujet: entry(
+    "Sujet",
+    "Subject",
+    "الموضوع",
+  ),
+  Message: entry(
+    "Message",
+    "Message",
+    "الرسالة",
+  ),
+  FAQ: entry(
+    "FAQ",
+    "FAQ",
+    "الأسئلة الشائعة",
+  ),
+  "Envoyer le message": entry(
+    "Envoyer le message",
+    "Send message",
+    "إرسال الرسالة",
+  ),
+  "Pour quel type de peau la gamme est-elle pensee ?": entry(
+    "Pour quel type de peau la gamme est-elle pensee ?",
+    "What skin type is the range designed for?",
+    "لأي نوع من البشرة صممت هذه المجموعة؟",
+  ),
+  "La routine est pensee pour les peaux mixtes a grasses sujettes aux imperfections, aux pores visibles et a l'exces de sebum.": entry(
+    "La routine est pensee pour les peaux mixtes a grasses sujettes aux imperfections, aux pores visibles et a l'exces de sebum.",
+    "The routine is designed for combination to oily skin prone to blemishes, visible pores, and excess sebum.",
+    "صمم هذا الروتين للبشرة المختلطة إلى الدهنية المعرضة للشوائب والمسام الظاهرة وزيادة الإفرازات الدهنية.",
+  ),
+  "Peut-on utiliser la routine matin et soir ?": entry(
+    "Peut-on utiliser la routine matin et soir ?",
+    "Can the routine be used morning and evening?",
+    "هل يمكن استخدام الروتين صباحا ومساء؟",
+  ),
+  "Oui, la routine peut etre utilisee matin et soir selon la tolerance de votre peau.": entry(
+    "Oui, la routine peut etre utilisee matin et soir selon la tolerance de votre peau.",
+    "Yes, the routine can be used morning and evening depending on your skin tolerance.",
+    "نعم، يمكن استخدام الروتين صباحا ومساء حسب تحمل بشرتك.",
+  ),
+  "La creme laisse-t-elle un fini gras ?": entry(
+    "La creme laisse-t-elle un fini gras ?",
+    "Does the cream leave a greasy finish?",
+    "هل يترك الكريم ملمسا دهنيا؟",
+  ),
+  "Comment utiliser la recharge ?": entry(
+    "Comment utiliser la recharge ?",
+    "How do you use the refill?",
+    "كيف تستخدم إعادة التعبئة؟",
+  ),
+  "Quand les produits seront-ils disponibles ?": entry(
+    "Quand les produits seront-ils disponibles ?",
+    "When will the products be available?",
+    "متى ستكون المنتجات متاحة؟",
+  ),
+  "Une sequence courte pour nettoyer, equilibrer et garder une sensation de confort avant la journee.": entry(
+    "Une sequence courte pour nettoyer, equilibrer et garder une sensation de confort avant la journee.",
+    "A short sequence to cleanse, balance, and keep a comfortable feeling before the day begins.",
+    "تسلسل قصير للتنظيف والتوازن والحفاظ على إحساس مريح قبل بداية اليوم.",
+  ),
+  "Le soir, on prend un peu plus de temps pour decongestionner la peau et renforcer l'hydratation.": entry(
+    "Le soir, on prend un peu plus de temps pour decongestionner la peau et renforcer l'hydratation.",
+    "In the evening, you take a little more time to clear the skin and reinforce hydration.",
+    "في المساء نأخذ وقتا إضافيا قليلا لتهدئة البشرة وتعزيز الترطيب.",
+  ),
+  "Masser sur peau humide pour retirer l'exces de sebum et les impuretes de la nuit.": entry(
+    "Masser sur peau humide pour retirer l'exces de sebum et les impuretes de la nuit.",
+    "Massage onto damp skin to remove excess sebum and overnight impurities.",
+    "دلّك على بشرة مبللة لإزالة الدهون الزائدة وشوائب الليل.",
+  ),
+  "Appliquer quelques gouttes sur les zones concernees, puis laisser absorber.": entry(
+    "Appliquer quelques gouttes sur les zones concernees, puis laisser absorber.",
+    "Apply a few drops to the concerned areas, then let it absorb.",
+    "ضع بضع قطرات على المناطق المعنية ثم اتركها تمتص.",
+  ),
+  "Sceller la routine avec une fine couche, sans effet gras.": entry(
+    "Sceller la routine avec une fine couche, sans effet gras.",
+    "Seal the routine with a thin layer, without a greasy effect.",
+    "اختم الروتين بطبقة خفيفة من دون أثر دهني.",
+  ),
+  "Faire mousser plus longtemps pour liberer la peau des residus de la journee.": entry(
+    "Faire mousser plus longtemps pour liberer la peau des residus de la journee.",
+    "Lather a little longer to free the skin from the day's residue.",
+    "دع الرغوة تعمل مدة أطول لتخليص البشرة من بقايا اليوم.",
+  ),
+  "Tapoter sur les imperfections visibles et les zones a pores dilates.": entry(
+    "Tapoter sur les imperfections visibles et les zones a pores dilates.",
+    "Pat onto visible blemishes and areas with enlarged pores.",
+    "ربت على الشوائب الظاهرة والمناطق ذات المسام المتسعة.",
+  ),
+  "Appliquer une couche confortable pour aider la peau a retrouver son equilibre.": entry(
+    "Appliquer une couche confortable pour aider la peau a retrouver son equilibre.",
+    "Apply a comfortable layer to help the skin regain its balance.",
+    "ضع طبقة مريحة لمساعدة البشرة على استعادة توازنها.",
+  ),
+  "Une routine inspiree de la nature": entry(
+    "Une routine inspiree de la nature",
+    "A routine inspired by nature",
+    "روتين مستوحى من الطبيعة",
+  ),
+  "SPIRALIS associe inspiration botanique, actifs cibles et design responsable.": entry(
+    "SPIRALIS associe inspiration botanique, actifs cibles et design responsable.",
+    "SPIRALIS combines botanical inspiration, targeted actives, and responsible design.",
+    "تجمع SPIRALIS بين الإلهام النباتي والمكونات الموجهة والتصميم المسؤول.",
+  ),
+  "Inspiration naturelle": entry(
+    "Inspiration naturelle",
+    "Natural inspiration",
+    "إلهام طبيعي",
+  ),
+  "Philosophie packaging": entry(
+    "Philosophie packaging",
+    "Packaging philosophy",
+    "فلسفة التغليف",
+  ),
+  "Vision responsable": entry(
+    "Vision responsable",
+    "Responsible vision",
+    "رؤية مسؤولة",
+  ),
+  "Proposer une routine simple, douce et efficace pour les peaux mixtes a grasses.": entry(
+    "Proposer une routine simple, douce et efficace pour les peaux mixtes a grasses.",
+    "Offer a simple, gentle, effective routine for combination to oily skin.",
+    "تقديم روتين بسيط ولطيف وفعال للبشرة المختلطة إلى الدهنية.",
+  ),
+  "Une identite visuelle inspiree des textures vegetales, du bambou et de la fraicheur botanique.": entry(
+    "Une identite visuelle inspiree des textures vegetales, du bambou et de la fraicheur botanique.",
+    "A visual identity inspired by plant textures, bamboo, and botanical freshness.",
+    "هوية بصرية مستوحاة من القوام النباتي والخيزران والانتعاش النباتي.",
+  ),
+  "Flacons verts transparents, finitions bambou et etiquettes creme pour une identite naturelle et premium.": entry(
+    "Flacons verts transparents, finitions bambou et etiquettes creme pour une identite naturelle et premium.",
+    "Transparent green bottles, bamboo finishes, and cream labels for a natural premium identity.",
+    "عبوات خضراء شفافة ولمسات خيزران وملصقات بلون كريمي لهوية طبيعية وفاخرة.",
+  ),
+  "Un systeme rechargeable pense pour prolonger la duree de vie du pot et reduire les dechets.": entry(
+    "Un systeme rechargeable pense pour prolonger la duree de vie du pot et reduire les dechets.",
+    "A refillable system designed to extend the jar's life and reduce waste.",
+    "نظام قابل لإعادة التعبئة صمم لإطالة عمر العبوة وتقليل النفايات.",
+  ),
+  "Recharge creme hydratante SPIRALIS": entry(
+    "Recharge creme hydratante SPIRALIS",
+    "SPIRALIS moisturizer refill",
+    "إعادة تعبئة كريم SPIRALIS المرطب",
+  ),
+  "Tutoriel de recharge SPIRALIS": entry(
+    "Tutoriel de recharge SPIRALIS",
+    "SPIRALIS refill tutorial",
+    "دليل إعادة تعبئة SPIRALIS",
+  ),
+  "Passez de la decouverte des produits a une routine plus claire, plus douce et plus facile a suivre.": entry(
+    "Passez de la decouverte des produits a une routine plus claire, plus douce et plus facile a suivre.",
+    "Move from product discovery to a routine that is clearer, gentler, and easier to follow.",
+    "انتقل من اكتشاف المنتجات إلى روتين أوضح وألطف وأسهل في المتابعة.",
+  ),
+  "Vue face": entry(
+    "Vue face",
+    "Front view",
+    "عرض أمامي",
+  ),
+  "Vue profil": entry(
+    "Vue profil",
+    "Side view",
+    "عرض جانبي",
+  ),
+  "Vue volume": entry(
+    "Vue volume",
+    "Volume view",
+    "عرض الحجم",
+  ),
+  "Studio inspectable": entry(
+    "Studio inspectable",
+    "Inspectable studio",
+    "استوديو قابل للفحص",
+  ),
+  "Google model-viewer": entry(
+    "Google model-viewer",
+    "Google model-viewer",
+    "عارض Google model-viewer",
+  ),
+  "Le viewer se charge uniquement quand cette zone entre dans l'ecran pour garder la page fluide.": entry(
+    "Le viewer se charge uniquement quand cette zone entre dans l'ecran pour garder la page fluide.",
+    "The viewer loads only when this area enters the screen to keep the page responsive.",
+    "ÙŠØªÙ… ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø¹Ø§Ø±Ø¶ ÙÙ‚Ø· Ø¹Ù†Ø¯Ù…Ø§ ØªØ¯Ø®Ù„ Ù‡Ø°Ù‡ Ø§Ù„Ù…Ù†Ø·Ù‚Ø© Ø¥Ù„Ù‰ Ø§Ù„Ø´Ø§Ø´Ø© Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø³Ù„Ø§Ø³Ø© Ø§Ù„ØµÙØ­Ø©.",
+  ),
+  "Activez la 3D seulement quand vous voulez l'ouvrir pour garder la page fluide.": entry(
+    "Activez la 3D seulement quand vous voulez l'ouvrir pour garder la page fluide.",
+    "Activate 3D only when you want to open it to keep the page responsive.",
+    "ÙØ¹Ù‘Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠ Ø§Ù„Ø£Ø¨Ø¹Ø§Ø¯ ÙÙ‚Ø· Ø¹Ù†Ø¯Ù…Ø§ ØªØ±ÙŠØ¯ ÙØªØ­Ù‡ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ Ø³Ù„Ø§Ø³Ø© Ø§Ù„ØµÙØ­Ø©.",
+  ),
+  "Pause rotation": entry(
+    "Pause rotation",
+    "Pause rotation",
+    "إيقاف الدوران",
+  ),
+  Reinitialiser: entry(
+    "Reinitialiser",
+    "Reset",
+    "إعادة الضبط",
+  ),
+  "Molette pour zoomer": entry(
+    "Molette pour zoomer",
+    "Scroll to zoom",
+    "عجلة الماوس للتكبير",
+  ),
+  "R pour reinitialiser": entry(
+    "R pour reinitialiser",
+    "R to reset",
+    "R لإعادة الضبط",
+  ),
+  "Espace pour auto-rotation": entry(
+    "Espace pour auto-rotation",
+    "Space for auto-rotation",
+    "مسافة للدوران التلقائي",
+  ),
 };
 
 export function getTranslation(source: string, lang: LanguageCode) {

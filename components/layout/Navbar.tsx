@@ -38,17 +38,17 @@ export function Navbar() {
       <div className="bg-deep-olive">
         <div className="container-shell flex min-h-10 items-center gap-3 py-2 text-cream">
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[0.66rem] font-semibold uppercase tracking-[0.08em] text-cream/90 sm:text-xs sm:tracking-[0.16em]">
-              <span className="hidden sm:inline">
-                <span className="mr-2 text-cream/58">{pageContext.label}</span>
-                <span className="mr-2 text-cream/42">•</span>
+            <div className="flex min-w-0 items-center gap-2 text-[0.66rem] font-semibold uppercase tracking-[0.08em] text-cream/90 sm:text-xs sm:tracking-[0.16em]">
+              <span className="hidden shrink-0 rounded-full border border-white/12 bg-white/8 px-2 py-0.5 text-cream/72 sm:inline-flex">
+                {pageContext.label}
               </span>
-              <span>{pageContext.banner}</span>
-            </p>
+              <span className="hidden shrink-0 text-cream/30 sm:inline">•</span>
+              <p className="truncate text-cream/92">{pageContext.banner}</p>
+            </div>
           </div>
           <Link
             href={pageContext.nextHref}
-            className="hidden shrink-0 rounded-full border border-white/16 bg-white/8 px-3 py-1 text-[0.68rem] font-semibold text-cream transition hover:border-white/30 hover:bg-white/14 lg:inline-flex lg:text-xs"
+            className="hidden shrink-0 rounded-full border border-white/70 bg-white px-3 py-1 text-[0.68rem] font-semibold text-[#173a2a] shadow-sm transition hover:bg-white/92 hover:text-[#173a2a] lg:inline-flex lg:text-xs"
           >
             {pageContext.nextLabel}
           </Link>
@@ -80,7 +80,7 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "rounded-full px-2.5 py-2 text-sm font-semibold text-deep-olive/68 transition hover:bg-cream hover:text-deep-olive",
+                        "rounded-full px-2.5 py-2 text-sm font-semibold text-deep-olive/74 transition hover:bg-cream hover:text-deep-olive",
                         pathname === link.href && "bg-cream text-deep-olive shadow-sm",
                       )}
                     >
@@ -103,7 +103,7 @@ export function Navbar() {
                 priority
               />
             </Link>
-            <div className="rounded-full border border-border-soft bg-cream/72 px-3 py-1 text-[0.72rem] font-semibold text-deep-olive/78 shadow-sm backdrop-blur">
+            <div className="rounded-full border border-border-soft bg-cream/78 px-3 py-1 text-[0.72rem] font-semibold text-deep-olive/88 shadow-sm backdrop-blur">
               {pageContext.summary}
             </div>
           </div>
@@ -116,7 +116,7 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "rounded-full px-2.5 py-2 text-sm font-semibold text-deep-olive/68 transition hover:bg-cream hover:text-deep-olive",
+                        "rounded-full px-2.5 py-2 text-sm font-semibold text-deep-olive/74 transition hover:bg-cream hover:text-deep-olive",
                         pathname === link.href && "bg-cream text-deep-olive shadow-sm",
                       )}
                     >
