@@ -25,6 +25,55 @@ export function normalizeText(value: string) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+function repairCommonMojibake(value: string) {
+  return value
+    .replace(/Ã€|Ã‚Â€|Ãƒâ‚¬/g, "À")
+    .replace(/Ã©|ÃƒÂ©/g, "é")
+    .replace(/Ã¨|ÃƒÂ¨/g, "è")
+    .replace(/Ãª|ÃƒÂª/g, "ê")
+    .replace(/Ã«|ÃƒÂ«/g, "ë")
+    .replace(/Ã |ÃƒÂ /g, "à")
+    .replace(/Ã¢|ÃƒÂ¢/g, "â")
+    .replace(/Ã¤|ÃƒÂ¤/g, "ä")
+    .replace(/Ã¹|ÃƒÂ¹/g, "ù")
+    .replace(/Ã»|ÃƒÂ»/g, "û")
+    .replace(/Ã¼|ÃƒÂ¼/g, "ü")
+    .replace(/Ã´|ÃƒÂ´/g, "ô")
+    .replace(/Ã¶|ÃƒÂ¶/g, "ö")
+    .replace(/Ã®|ÃƒÂ®/g, "î")
+    .replace(/Ã¯|ÃƒÂ¯/g, "ï")
+    .replace(/Ã§|ÃƒÂ§/g, "ç")
+    .replace(/Ã‰|Ãƒâ€°/g, "É")
+    .replace(/Ãˆ/g, "È")
+    .replace(/ÃŠ/g, "Ê")
+    .replace(/Ã‹/g, "Ë")
+    .replace(/Ã‡/g, "Ç")
+    .replace(/ÃŽ/g, "Î")
+    .replace(/Ã”/g, "Ô")
+    .replace(/Ã™/g, "Ù")
+    .replace(/Ãœ/g, "Ü")
+    .replace(/â€™|â€˜|`|´/g, "'")
+    .replace(/â€œ|â€/g, '"')
+    .replace(/â€¢/g, "•")
+    .replace(/â€“|â€”/g, "-")
+    .replace(/Â©|Ã‚Â©/g, "©")
+    .replace(/Â/g, "");
+}
+
+function normalizeLookupKey(value: string) {
+  return normalizeText(repairCommonMojibake(value))
+    .replace(/[’‘`´]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[‐‑–—]/g, "-")
+    .replace(/œ/g, "oe")
+    .replace(/Œ/g, "oe")
+    .replace(/æ/g, "ae")
+    .replace(/Æ/g, "ae")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 export const translations: Record<string, Translation> = {
   Accueil: entry("Accueil", "Home", "الرئيسية"),
   Gamme: entry("Gamme", "Range", "المجموعة"),
@@ -1437,7 +1486,64 @@ const exactTranslations: Record<string, Translation> = {
     "View details for Moisturizer Refill",
     "شاهد تفاصيل إعادة تعبئة كريم الترطيب",
   ),
+  "Logo SPIRALIS": entry(
+    "Logo SPIRALIS",
+    "SPIRALIS logo",
+    "شعار سبيراليس",
+  ),
+  "Scène produit de la gamme SPIRALIS": entry(
+    "Scene produit de la gamme SPIRALIS",
+    "SPIRALIS range product scene",
+    "مشهد منتجات مجموعة سبيراليس",
+  ),
+  "Gamme SPIRALIS avec espace de routine": entry(
+    "Gamme SPIRALIS avec espace de routine",
+    "SPIRALIS range with routine space",
+    "مجموعة سبيراليس مع مساحة مخصصة للروتين",
+  ),
+  "Textures actives SPIRALIS": entry(
+    "Textures actives SPIRALIS",
+    "SPIRALIS active textures",
+    "قوام المكونات الفعالة من سبيراليس",
+  ),
+  "Ingrédients du sérum SPIRALIS": entry(
+    "Ingredients du serum SPIRALIS",
+    "SPIRALIS serum ingredients",
+    "مكونات سيروم سبيراليس",
+  ),
+  "Référence multivue pour l'expérience 3D SPIRALIS": entry(
+    "Reference multivue pour l'experience 3D SPIRALIS",
+    "Multi-view reference for the SPIRALIS 3D experience",
+    "مرجع متعدد الزوايا لتجربة سبيراليس ثلاثية الأبعاد",
+  ),
 };
+
+function buildLookupIndex(...groups: Array<Record<string, Translation>>) {
+  const index: Record<string, Translation> = {};
+
+  for (const group of groups) {
+    for (const [key, value] of Object.entries(group)) {
+      const candidates = [key, value.fr];
+
+      for (const candidate of candidates) {
+        const normalizedCandidate = normalizeLookupKey(candidate);
+        if (!normalizedCandidate || index[normalizedCandidate]) {
+          continue;
+        }
+
+        index[normalizedCandidate] = value;
+      }
+    }
+  }
+
+  return index;
+}
+
+const lookupTranslations = buildLookupIndex(
+  exactTranslations,
+  translations,
+  supplementalTranslations,
+);
 
 export function getTranslation(source: string, lang: LanguageCode) {
   const normalizedSource = normalizeText(source);
@@ -1445,5 +1551,11 @@ export function getTranslation(source: string, lang: LanguageCode) {
     exactTranslations[normalizedSource] ??
     translations[normalizedSource] ??
     supplementalTranslations[normalizedSource];
-  return match?.[lang] ?? null;
+
+  if (match) {
+    return match[lang];
+  }
+
+  const lookupMatch = lookupTranslations[normalizeLookupKey(source)];
+  return lookupMatch?.[lang] ?? null;
 }

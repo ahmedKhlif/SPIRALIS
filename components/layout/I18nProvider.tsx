@@ -130,10 +130,12 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const translatableAttributes = ["aria-label", "title", "placeholder", "alt"] as const;
-
     sourceTextByNode.current = new WeakMap<Text, string>();
     sourceAttributesByElement.current = new WeakMap<Element, Map<string, string>>();
+  }, [pathname, locationKey]);
+
+  useEffect(() => {
+    const translatableAttributes = ["aria-label", "title", "placeholder", "alt"] as const;
 
     const translateTextNode = (node: Text) => {
       const parent = node.parentElement;
