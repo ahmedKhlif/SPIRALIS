@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { MousePointer2, Pause, Play, RotateCcw, Rotate3D, ScanSearch, ZoomIn } from "lucide-react";
+import { Box, MousePointer2, Pause, Play, RotateCcw, Rotate3D, ScanSearch, ZoomIn } from "lucide-react";
 import { ModelFallback } from "@/components/three/ModelFallback";
 import { cn } from "@/lib/utils";
 
@@ -260,7 +260,9 @@ export function ProductModelViewer({
           exposure="1.2"
           environment-image="neutral"
           skybox-image=""
-          ar="false"
+          ar=""
+          ar-modes="webxr scene-viewer quick-look"
+          quick-look-browsers="safari chrome"
           interaction-policy="allow-when-focused"
           camera-orbit={cameraPresets[activePreset].orbit}
           min-camera-orbit="auto 0deg auto"
@@ -277,6 +279,14 @@ export function ProductModelViewer({
           disable-tap=""
           style={{ width: "100%", height: "100%" }}
         >
+          <button
+            slot="ar-button"
+            type="button"
+            className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/55 bg-background/88 text-deep-olive shadow-lg backdrop-blur transition hover:scale-[1.03] hover:bg-cream/95 sm:h-16 sm:w-16"
+            aria-label="Ouvrir le modele 3D"
+          >
+            <Box className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.6} />
+          </button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={fallbackImage}
