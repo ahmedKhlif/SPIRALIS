@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import {
   Box,
@@ -11,13 +11,11 @@ import {
   Rotate3D,
   ScanSearch,
   Sparkles,
-  Telescope,
   ZoomIn,
 } from "lucide-react";
 import { fallbackImages, modelPaths } from "@/lib/assets";
 import { IconBadge } from "@/components/sections/IconBadge";
 import { ModelFallback } from "@/components/three/ModelFallback";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ProductModelViewer = dynamic(
@@ -90,32 +88,7 @@ const viewers = [
 
 export function ProductModelTabs() {
   const [activeValue, setActiveValue] = useState(viewers[0].value);
-  const [canMountViewer, setCanMountViewer] = useState(false);
-  const [isViewerEnabled, setIsViewerEnabled] = useState(false);
-  const viewerAnchorRef = useRef<HTMLDivElement | null>(null);
   const activeViewer = viewers.find((viewer) => viewer.value === activeValue) ?? viewers[0];
-
-  useEffect(() => {
-    const node = viewerAnchorRef.current;
-
-    if (!node || canMountViewer) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setCanMountViewer(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "240px 0px" },
-    );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, [canMountViewer]);
 
   return (
     <Tabs
@@ -149,47 +122,15 @@ export function ProductModelTabs() {
       </div>
 
       <TabsContent value={activeViewer.value} className="mt-6">
-        <div ref={viewerAnchorRef} className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_21rem]">
-          {canMountViewer && isViewerEnabled ? (
+        <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_21rem]">
+          <div data-no-translate="true" translate="no">
             <ProductModelViewer
               key={activeViewer.value}
               modelPath={activeViewer.modelPath}
               fallbackImage={activeViewer.fallbackImage}
               productName={activeViewer.name}
             />
-          ) : (
-            <div className="grid min-h-[430px] place-items-center overflow-hidden rounded-[22px] border border-border-soft bg-[radial-gradient(circle_at_50%_18%,var(--cream)_0%,var(--soft-beige)_52%,var(--pale-green)_100%)] p-6 text-center shadow-soft sm:min-h-[560px] sm:rounded-[28px]">
-              <div className="max-w-md space-y-4">
-                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-border-soft bg-background/80 text-deep-olive shadow-sm">
-                  <Telescope className="h-6 w-6" strokeWidth={1.5} />
-                </div>
-                <div className="space-y-2">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-bamboo">
-                    Studio 3D
-                  </p>
-                  <h3 className="font-heading text-3xl font-semibold leading-tight text-deep-olive">
-                    {activeViewer.name}
-                  </h3>
-                  <p className="text-sm leading-7 text-text-dark/70">
-                    {canMountViewer
-                      ? "Activez la 3D seulement quand vous voulez l'ouvrir pour garder la page fluide."
-                      : "Le viewer se charge uniquement quand cette zone entre dans l'ecran pour garder la page fluide."}
-                  </p>
-                </div>
-                {canMountViewer ? (
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                    <Button
-                      type="button"
-                      onClick={() => setIsViewerEnabled(true)}
-                      className="min-w-[13rem]"
-                    >
-                      Explorer en 3D
-                    </Button>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          )}
+          </div>
           <aside className="grid content-start gap-4 rounded-[22px] border border-border-soft bg-background/78 p-4 shadow-sm backdrop-blur sm:p-5">
             <div className="rounded-[18px] border border-border-soft bg-cream/70 p-4">
               <div className="mb-3 flex items-center justify-between gap-3">

@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { CheckCircle2 } from "lucide-react";
 import { ProductModelTabs } from "@/components/three/ProductModelTabs";
 import { PageHero } from "@/components/sections/PageHero";
@@ -13,6 +14,13 @@ const studioHighlights = [
 export default function Experience3DPage() {
   return (
     <>
+      <Script
+        id="google-model-viewer"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+        strategy="afterInteractive"
+        type="module"
+      />
+
       <PageHero
         eyebrow="Experience 3D"
         title="Explorez les produits sous tous les angles"
