@@ -1,0 +1,5 @@
+Put your GLB files here:
+- gel-nettoyant.glb
+- serum.glb
+- creme-hydratante.glb
+- recharge.glb

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="1100" viewBox="0 0 620 1100">
+  <defs><filter id="paperNoise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer></filter><style>.h{font-family:Arial,Helvetica,sans-serif;font-size:28px;font-weight:700;fill:#173A2A}.p{font-family:Arial,Helvetica,sans-serif;font-size:23px;fill:#173A2A}.s{font-family:Arial,Helvetica,sans-serif;font-size:20px;fill:#173A2A}.box{fill:none;stroke:#173A2A;stroke-width:2}</style></defs>
+  <rect x="45" y="35" width="530" height="1030" rx="34" fill="#F8F2E8" stroke="#D9CBB6" stroke-width="2" filter="url(#paperNoise)"/>
+  <rect x="75" y="70" width="470" height="960" rx="18" class="box"/>
+  <text x="95" y="130" class="h">GEL NETTOYANT ANTI-IMPERFECTIONS</text>
+  <text x="95" y="178" class="p">Gel nettoyant purifiant qui aide à nettoyer la peau en</text><text x="95" y="210" class="p">douceur, à désincruster les pores et à réduire l’apparence</text><text x="95" y="242" class="p">des imperfections. Convient aux peaux mixtes à grasses.</text>
+  <text x="95" y="315" class="h">CONSEILS D’UTILISATION</text><text x="95" y="363" class="p">Appliquer sur peau humide, masser délicatement puis</text><text x="95" y="395" class="p">rincer à l’eau claire. Utiliser matin et soir.</text>
+  <text x="95" y="470" class="h">PRÉCAUTIONS D’EMPLOI</text><text x="95" y="518" class="p">Usage externe uniquement. Éviter le contact avec les yeux.</text><text x="95" y="550" class="p">En cas d’irritation, cesser l’utilisation. Tenir hors de portée</text><text x="95" y="582" class="p">des enfants.</text>
+  <text x="95" y="655" class="h">INGRÉDIENTS (INCI)</text><text x="95" y="703" class="s">Aqua, Centella Asiatica Extract, Hydroxyethylcellulose,</text><text x="95" y="732" class="s">Propanediol, Propylene Glycol, Niacinamide, Zinc PCA,</text><text x="95" y="761" class="s">Panthenol, Salicylic Acid, Spirulina Platensis Extract,</text><text x="95" y="790" class="s">Decyl Glucoside, Cocamidopropyl Betaine, Tocopherol,</text><text x="95" y="819" class="s">Polysorbate 20, Disodium EDTA, Phenoxyethanol, Parfum.</text>
+  <line x1="95" y1="870" x2="525" y2="870" stroke="#173A2A" stroke-width="2"/>
+  <text x="95" y="915" class="s">Fabriqué par : Laboratoire PIPCOS</text><text x="95" y="948" class="s">Made in Tunisia</text><text x="95" y="982" class="s">N° Lot : ____________</text><text x="95" y="1014" class="s">Réf. : ______________</text>
+  <rect x="330" y="910" width="85" height="85" class="box"/><text x="372" y="948" class="s" text-anchor="middle">QR</text><text x="372" y="976" class="s" text-anchor="middle">CODE</text>
+  <rect x="435" y="910" width="85" height="85" class="box"/><text x="477" y="955" class="s" text-anchor="middle">CODE</text><text x="477" y="980" class="s" text-anchor="middle">BARRES</text>
+</svg>
