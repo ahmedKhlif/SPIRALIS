@@ -11,7 +11,7 @@ type ProductModelViewerProps = {
   productName: string;
 };
 
-type CameraPreset = "front" | "side" | "top";
+type CameraPreset = "front";
 
 type ModelViewerElement = HTMLElement & {
   cameraOrbit?: string;
@@ -33,8 +33,6 @@ type ModelProgressEvent = Event & {
 
 const cameraPresets: Record<CameraPreset, { label: string; orbit: string }> = {
   front: { label: "Vue face", orbit: "0deg 75deg 105%" },
-  side: { label: "Vue profil", orbit: "75deg 78deg 115%" },
-  top: { label: "Vue volume", orbit: "0deg 58deg 112%" },
 };
 
 class ViewerErrorBoundary extends React.Component<
@@ -166,16 +164,6 @@ export function ProductModelViewer({
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
-
-  const setPreset = (presetKey: CameraPreset) => {
-    const viewer = viewerRef.current;
-    setActivePreset(presetKey);
-    if (!viewer) {
-      return;
-    }
-    viewer.cameraOrbit = cameraPresets[presetKey].orbit;
-    viewer.jumpCameraToGoal?.();
-  };
 
   const resetViewer = () => {
     const viewer = viewerRef.current;
@@ -317,20 +305,15 @@ export function ProductModelViewer({
             {productName}
           </div>
           <div className="grid gap-2 rounded-[20px] border border-border-soft bg-background/82 p-2 shadow-sm backdrop-blur sm:grid-cols-[1fr_auto] sm:items-center">
-            <div className="grid grid-cols-3 gap-1.5">
-              {(Object.keys(cameraPresets) as CameraPreset[]).map((presetKey) => (
-                <button
-                  key={presetKey}
-                  type="button"
-                  onClick={() => setPreset(presetKey)}
-                  className={cn(
-                    "min-h-10 rounded-2xl px-2 text-xs font-semibold text-deep-olive transition hover:bg-pale-green/60",
-                    activePreset === presetKey && "bg-deep-olive text-white hover:bg-deep-olive",
-                  )}
-                >
-                  {cameraPresets[presetKey].label}
-                </button>
-              ))}
+            <div className="grid grid-cols-1 gap-1.5">
+              <div
+                className={cn(
+                  "min-h-10 rounded-2xl bg-deep-olive px-2 text-xs font-semibold text-white",
+                  "inline-flex items-center justify-center",
+                )}
+              >
+                {cameraPresets.front.label}
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-1.5 sm:w-64">
               <button
