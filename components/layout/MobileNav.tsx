@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { brandAssets } from "@/lib/assets";
 import { getPageContext, navigationLinks } from "@/lib/navigation";
@@ -21,8 +22,20 @@ import {
 export function MobileNav() {
   const { theme } = useI18n();
   const pathname = usePathname();
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
   const logo = theme === "dark" ? brandAssets.logoLight : brandAssets.logoDark;
-  const pageContext = getPageContext(pathname);
+  const pageContext = getPageContext(pathname, searchParams);
+
+  useEffect(() => {
+    const syncSearch = () => setSearchParams(new URLSearchParams(window.location.search));
+    syncSearch();
+    window.addEventListener("popstate", syncSearch);
+    window.addEventListener("locationchange", syncSearch);
+    return () => {
+      window.removeEventListener("popstate", syncSearch);
+      window.removeEventListener("locationchange", syncSearch);
+    };
+  }, []);
 
   return (
     <Sheet>

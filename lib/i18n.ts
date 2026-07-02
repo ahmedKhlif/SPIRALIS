@@ -1317,6 +1317,126 @@ const exactTranslations: Record<string, Translation> = {
     "Space for auto-rotation",
     "مسافة للدوران التلقائي",
   ),
+  "Routine matin: trois gestes pour purifier et garder un fini frais.": entry(
+    "Routine matin: trois gestes pour purifier et garder un fini frais.",
+    "Morning routine: three steps to purify and keep a fresh finish.",
+    "روتين الصباح: ثلاث خطوات لتنقية البشرة والحفاظ على لمسة منعشة.",
+  ),
+  "Routine soir: purifier, traiter et renforcer le confort cutane.": entry(
+    "Routine soir: purifier, traiter et renforcer le confort cutane.",
+    "Evening routine: cleanse, treat, and reinforce skin comfort.",
+    "روتين المساء: نظف وعالج وعزز راحة البشرة.",
+  ),
+  "Voir ce qui agit dans la routine du matin": entry(
+    "Voir ce qui agit dans la routine du matin",
+    "See what is working in the morning routine",
+    "شاهد ما الذي يعمل داخل روتين الصباح",
+  ),
+  "Voir ce qui agit dans la routine du soir": entry(
+    "Voir ce qui agit dans la routine du soir",
+    "See what is working in the evening routine",
+    "شاهد ما الذي يعمل داخل روتين المساء",
+  ),
+  "Une lecture rapide pour nettoyer, equilibrer et preparer la peau des le reveil.": entry(
+    "Une lecture rapide pour nettoyer, equilibrer et preparer la peau des le reveil.",
+    "A quick routine to cleanse, balance, and prepare the skin from the moment you wake up.",
+    "قراءة سريعة لتنظيف البشرة وموازنتها وتحضيرها منذ لحظة الاستيقاظ.",
+  ),
+  "Le rituel du soir prend plus de temps pour decongestionner et rehydrater la peau.": entry(
+    "Le rituel du soir prend plus de temps pour decongestionner et rehydrater la peau.",
+    "The evening ritual takes more time to decongest and rehydrate the skin.",
+    "يأخذ طقس المساء وقتا أطول لتهدئة البشرة وإعادة ترطيبها.",
+  ),
+  "Illustration 3D SPIRALIS": entry(
+    "Illustration 3D SPIRALIS",
+    "SPIRALIS 3D illustration",
+    "رسم توضيحي ثلاثي الأبعاد لسبيراليس",
+  ),
+  "Accueil SPIRALIS": entry(
+    "Accueil SPIRALIS",
+    "SPIRALIS home",
+    "الصفحة الرئيسية لسبيراليس",
+  ),
+  "Navigation mobile": entry(
+    "Navigation mobile",
+    "Mobile navigation",
+    "التنقل على الهاتف",
+  ),
+  "Navigation du pied de page": entry(
+    "Navigation du pied de page",
+    "Footer navigation",
+    "التنقل في تذييل الصفحة",
+  ),
+  "Gamme lifestyle SPIRALIS": entry(
+    "Gamme lifestyle SPIRALIS",
+    "SPIRALIS lifestyle range",
+    "صورة نمط الحياة لمجموعة سبيراليس",
+  ),
+  "Routine SPIRALIS en trois soins": entry(
+    "Routine SPIRALIS en trois soins",
+    "SPIRALIS routine in three products",
+    "روتين سبيراليس في ثلاثة منتجات",
+  ),
+  "Actifs botaniques SPIRALIS": entry(
+    "Actifs botaniques SPIRALIS",
+    "SPIRALIS botanical actives",
+    "المكونات النباتية الفعالة من سبيراليس",
+  ),
+  "Espace clean skincare SPIRALIS": entry(
+    "Espace clean skincare SPIRALIS",
+    "SPIRALIS clean skincare space",
+    "مساحة العناية النظيفة بالبشرة من سبيراليس",
+  ),
+  "Application du serum SPIRALIS": entry(
+    "Application du serum SPIRALIS",
+    "SPIRALIS serum application",
+    "طريقة تطبيق سيروم سبيراليس",
+  ),
+  "Application de la creme hydratante SPIRALIS": entry(
+    "Application de la creme hydratante SPIRALIS",
+    "SPIRALIS moisturizer application",
+    "طريقة تطبيق كريم الترطيب من سبيراليس",
+  ),
+  "Mousse du gel nettoyant SPIRALIS": entry(
+    "Mousse du gel nettoyant SPIRALIS",
+    "SPIRALIS cleansing gel foam",
+    "رغوة جل التنظيف من سبيراليس",
+  ),
+  "Voir le detail de Gel Nettoyant Anti-Imperfections": entry(
+    "Voir le detail de Gel Nettoyant Anti-Imperfections",
+    "View details for Blemish-Care Cleansing Gel",
+    "شاهد تفاصيل جل التنظيف المقاوم للشوائب",
+  ),
+  "Voir le detail de Sérum Anti-Imperfections": entry(
+    "Voir le detail de Serum Anti-Imperfections",
+    "View details for Blemish-Care Serum",
+    "شاهد تفاصيل السيروم المقاوم للشوائب",
+  ),
+  "Voir le detail de Serum Anti-Imperfections": entry(
+    "Voir le detail de Serum Anti-Imperfections",
+    "View details for Blemish-Care Serum",
+    "شاهد تفاصيل السيروم المقاوم للشوائب",
+  ),
+  "Voir le detail de Crème Hydratante Anti-Imperfections": entry(
+    "Voir le detail de Creme Hydratante Anti-Imperfections",
+    "View details for Blemish-Care Moisturizer",
+    "شاهد تفاصيل كريم الترطيب المقاوم للشوائب",
+  ),
+  "Voir le detail de Creme Hydratante Anti-Imperfections": entry(
+    "Voir le detail de Creme Hydratante Anti-Imperfections",
+    "View details for Blemish-Care Moisturizer",
+    "شاهد تفاصيل كريم الترطيب المقاوم للشوائب",
+  ),
+  "Voir le detail de Recharge Crème Hydratante": entry(
+    "Voir le detail de Recharge Creme Hydratante",
+    "View details for Moisturizer Refill",
+    "شاهد تفاصيل إعادة تعبئة كريم الترطيب",
+  ),
+  "Voir le detail de Recharge Creme Hydratante": entry(
+    "Voir le detail de Recharge Creme Hydratante",
+    "View details for Moisturizer Refill",
+    "شاهد تفاصيل إعادة تعبئة كريم الترطيب",
+  ),
 };
 
 export function getTranslation(source: string, lang: LanguageCode) {

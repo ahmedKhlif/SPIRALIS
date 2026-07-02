@@ -48,6 +48,24 @@ const pageContexts: PageContext[] = [
     nextPrompt: "Voir ce qui agit derriere chaque etape",
   },
   {
+    href: "/routine?moment=matin",
+    label: "Routine matin",
+    summary: "Une lecture rapide pour nettoyer, equilibrer et preparer la peau des le reveil.",
+    banner: "Routine matin: trois gestes pour purifier et garder un fini frais.",
+    nextHref: "/actifs",
+    nextLabel: "Comprendre les actifs",
+    nextPrompt: "Voir ce qui agit dans la routine du matin",
+  },
+  {
+    href: "/routine?moment=soir",
+    label: "Routine soir",
+    summary: "Le rituel du soir prend plus de temps pour decongestionner et rehydrater la peau.",
+    banner: "Routine soir: purifier, traiter et renforcer le confort cutane.",
+    nextHref: "/actifs",
+    nextLabel: "Comprendre les actifs",
+    nextPrompt: "Voir ce qui agit dans la routine du soir",
+  },
+  {
     href: "/actifs",
     label: "Actifs",
     summary: "Les ingredients cles expliques sans surcharger la lecture.",
@@ -121,8 +139,13 @@ const pageContexts: PageContext[] = [
   },
 ];
 
-export function getPageContext(pathname: string): PageContext {
-  const exactMatch = pageContexts.find((item) => item.href === pathname);
+export function getPageContext(pathname: string, searchParams?: URLSearchParams | null): PageContext {
+  const contextualHref =
+    pathname === "/routine" && searchParams?.get("moment")
+      ? `/routine?moment=${searchParams.get("moment")}`
+      : pathname;
+
+  const exactMatch = pageContexts.find((item) => item.href === contextualHref);
   if (exactMatch) {
     return exactMatch;
   }

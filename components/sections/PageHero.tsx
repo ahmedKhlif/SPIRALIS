@@ -15,6 +15,9 @@ type PageHeroProps = {
   subtitle: string;
   image: string;
   mobileImage?: string;
+  imageBackgroundClassName?: string;
+  imageClassName?: string;
+  mobileImageClassName?: string;
   primaryHref?: string;
   primaryLabel?: string;
   secondaryHref?: string;
@@ -30,6 +33,9 @@ export function PageHero({
   subtitle,
   image,
   mobileImage,
+  imageBackgroundClassName,
+  imageClassName,
+  mobileImageClassName,
   primaryHref,
   primaryLabel,
   secondaryHref,
@@ -52,13 +58,14 @@ export function PageHero({
       className="relative isolate flex min-h-[34rem] overflow-hidden border-b border-border-soft sm:min-h-[560px] lg:min-h-[610px]"
       dir="ltr"
     >
+      {imageBackgroundClassName ? <div className={cn("absolute inset-0", imageBackgroundClassName)} /> : null}
       {mobileImage ? (
         <Image
           src={mobileImage}
           alt=""
           fill
           priority
-          className="object-cover md:hidden"
+          className={cn("object-cover md:hidden", mobileImageClassName)}
           sizes="100vw"
           style={{ objectPosition: mirroredImagePosition }}
         />
@@ -68,7 +75,7 @@ export function PageHero({
         alt=""
         fill
         priority
-        className={cn("object-cover", mobileImage && "hidden md:block")}
+        className={cn("object-cover", mobileImage && "hidden md:block", imageClassName)}
         sizes="100vw"
         style={{ objectPosition: mirroredImagePosition }}
       />

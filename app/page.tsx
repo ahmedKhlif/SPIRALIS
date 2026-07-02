@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import {
   Droplets,
@@ -22,10 +22,10 @@ import { RoutineSteps } from "@/components/sections/RoutineSteps";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 
 const concerns = [
-  { label: "Excès de sébum", icon: Droplets },
+  { label: "ExcÃ¨s de sÃ©bum", icon: Droplets },
   { label: "Pores visibles", icon: ScanSearch },
   { label: "Imperfections", icon: Sparkles },
-  { label: "Teint irrégulier", icon: ShieldCheck },
+  { label: "Teint irrÃ©gulier", icon: ShieldCheck },
 ];
 
 export default function Home() {
@@ -38,8 +38,8 @@ export default function Home() {
           <Reveal>
             <SectionHeader
               eyebrow="Peau"
-              title="Pensée pour les peaux mixtes à grasses"
-              description="Une approche douce, ciblée et minimaliste des préoccupations visibles."
+              title="PensÃ©e pour les peaux mixtes Ã  grasses"
+              description="Une approche douce, ciblÃ©e et minimaliste des prÃ©occupations visibles."
             />
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -58,12 +58,12 @@ export default function Home() {
       <section className="section-padding bg-cream">
         <div className="container-shell grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
-            <div className="image-soft-mask relative aspect-[5/4]">
+            <div className="image-soft-mask relative aspect-[5/4] overflow-hidden border border-border-soft bg-[radial-gradient(circle_at_50%_20%,rgba(255,248,236,0.98)_0%,rgba(234,220,198,0.84)_58%,rgba(221,232,200,0.82)_100%)]">
               <Image
-                src="/assets/spiralis/experience-3d/multiview-reference.webp"
-                alt="Référence multivue pour l'expérience 3D SPIRALIS"
+                src="/assets/spiralis/experience-3d/spiralis_3d_illustration_transparent.webp"
+                alt="RÃ©fÃ©rence multivue pour l'expÃ©rience 3D SPIRALIS"
                 fill
-                className="object-cover"
+                className="object-contain p-6 sm:p-8"
                 sizes="(min-width: 1024px) 52vw, 100vw"
               />
             </div>
@@ -72,8 +72,8 @@ export default function Home() {
             <SectionHeader
               align="left"
               eyebrow="3D"
-              title="Découvrez la gamme en 3D"
-              description="Explorez le packaging, les textures et les détails de chaque produit grâce à une expérience 3D interactive."
+              title="DÃ©couvrez la gamme en 3D"
+              description="Explorez le packaging, les textures et les dÃ©tails de chaque produit grÃ¢ce Ã  une expÃ©rience 3D interactive."
             />
             <div className="flex flex-wrap gap-3">
               <IconBadge icon={Rotate3D} label="Tourner" />
@@ -91,3 +91,4 @@ export default function Home() {
     </>
   );
 }
+

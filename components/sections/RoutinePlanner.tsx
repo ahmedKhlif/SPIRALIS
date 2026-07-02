@@ -174,6 +174,7 @@ export function RoutinePlanner() {
       url.searchParams.set("moment", value);
       url.hash = "routine-planner";
       window.history.replaceState(null, "", url);
+      window.dispatchEvent(new Event("locationchange"));
     }
   };
 

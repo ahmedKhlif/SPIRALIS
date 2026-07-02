@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   FlaskConical,
@@ -43,7 +44,19 @@ const journey = [
 
 export function SiteJourney() {
   const pathname = usePathname();
-  const pageContext = getPageContext(pathname);
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
+  const pageContext = getPageContext(pathname, searchParams);
+
+  useEffect(() => {
+    const syncSearch = () => setSearchParams(new URLSearchParams(window.location.search));
+    syncSearch();
+    window.addEventListener("popstate", syncSearch);
+    window.addEventListener("locationchange", syncSearch);
+    return () => {
+      window.removeEventListener("popstate", syncSearch);
+      window.removeEventListener("locationchange", syncSearch);
+    };
+  }, []);
 
   const journeyCards = journey
     .filter((item) => item.href !== pathname)

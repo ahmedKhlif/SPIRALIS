@@ -18,19 +18,31 @@ import {
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
   const { theme } = useI18n();
   const pathname = usePathname();
   const desktopLinks = navigationLinks.slice(1);
   const leftLinks = desktopLinks.slice(0, 3);
   const rightLinks = desktopLinks.slice(3);
   const logo = theme === "dark" ? brandAssets.logoLight : brandAssets.logoDark;
-  const pageContext = getPageContext(pathname);
+  const pageContext = getPageContext(pathname, searchParams);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const syncSearch = () => setSearchParams(new URLSearchParams(window.location.search));
+    syncSearch();
+    window.addEventListener("popstate", syncSearch);
+    window.addEventListener("locationchange", syncSearch);
+    return () => {
+      window.removeEventListener("popstate", syncSearch);
+      window.removeEventListener("locationchange", syncSearch);
+    };
   }, []);
 
   return (

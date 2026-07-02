@@ -6,5 +6,5 @@
   <text x="450" y="245" class="mid">CRÈME HYDRATANTE</text><text x="450" y="300" class="mid">ANTI-IMPERFECTIONS</text>
   <text x="450" y="390" class="small">SPIRULINE</text><text x="450" y="440" class="small">+ NIACINAMIDE</text><text x="450" y="490" class="small">+ ZINC PCA</text>
   <path d="M450 525 m-26 0 a26 26 0 1 0 52 0 a26 26 0 1 0 -52 0 M450 525 m-13 0 a13 13 0 1 0 26 0" fill="none" stroke="#173A2A" stroke-width="5" stroke-linecap="round"/>
-  <text x="450" y="568" class="vol">50 ml</text>
+  <text x="450" y="568" class="vol">30 ml</text>
 </svg>

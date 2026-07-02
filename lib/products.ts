@@ -27,7 +27,7 @@ export const products: Product[] = [
     slug: "serum",
     name: "Sérum Anti-Imperfections",
     shortName: "Sérum",
-    volume: "30 ml",
+    volume: "50 ml",
     step: "Traiter",
     actives: ["Spiruline", "Niacinamide", "Zinc PCA"],
     description:
@@ -39,7 +39,7 @@ export const products: Product[] = [
     slug: "creme-hydratante",
     name: "Crème Hydratante Anti-Imperfections",
     shortName: "Crème Hydratante",
-    volume: "50 ml",
+    volume: "30 ml",
     step: "Hydrater",
     actives: ["Spiruline", "Niacinamide", "Zinc PCA"],
     description:

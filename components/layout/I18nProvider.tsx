@@ -83,6 +83,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [language, setLanguageState] = useState<LanguageCode>("fr");
   const [theme, setTheme] = useState<ThemeMode>("light");
+  const [locationKey, setLocationKey] = useState("");
   const sourceTextByNode = useRef(new WeakMap<Text, string>());
   const sourceAttributesByElement = useRef(new WeakMap<Element, Map<string, string>>());
   const hasLoadedPreferences = useRef(false);
@@ -112,7 +113,27 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, [language, theme]);
 
   useEffect(() => {
+    const syncLocationKey = () => {
+      setLocationKey(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+    };
+
+    syncLocationKey();
+    window.addEventListener("popstate", syncLocationKey);
+    window.addEventListener("hashchange", syncLocationKey);
+    window.addEventListener("locationchange", syncLocationKey);
+
+    return () => {
+      window.removeEventListener("popstate", syncLocationKey);
+      window.removeEventListener("hashchange", syncLocationKey);
+      window.removeEventListener("locationchange", syncLocationKey);
+    };
+  }, []);
+
+  useEffect(() => {
     const translatableAttributes = ["aria-label", "title", "placeholder", "alt"] as const;
+
+    sourceTextByNode.current = new WeakMap<Text, string>();
+    sourceAttributesByElement.current = new WeakMap<Element, Map<string, string>>();
 
     const translateTextNode = (node: Text) => {
       const parent = node.parentElement;
@@ -193,7 +214,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [language, pathname]);
+  }, [language, pathname, locationKey]);
 
   const value = useMemo<I18nContextValue>(
     () => ({
