@@ -36,14 +36,14 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40">
       <div className="bg-deep-olive">
-        <div className="container-shell flex min-h-10 items-center gap-3 py-2 text-cream">
+        <div className="container-shell flex min-h-10 items-center gap-3 py-2 text-white">
           <div className="min-w-0 flex-1">
-            <div className="flex min-w-0 items-center gap-2 text-[0.66rem] font-semibold uppercase tracking-[0.08em] text-cream/90 sm:text-xs sm:tracking-[0.16em]">
-              <span className="hidden shrink-0 rounded-full border border-white/12 bg-white/8 px-2 py-0.5 text-cream/72 sm:inline-flex">
+            <div className="flex min-w-0 items-center gap-2 text-[0.66rem] font-semibold uppercase tracking-[0.08em] text-white sm:text-xs sm:tracking-[0.16em]">
+              <span className="hidden shrink-0 rounded-full border border-white/20 bg-white/10 px-2 py-0.5 text-white/88 sm:inline-flex">
                 {pageContext.label}
               </span>
               <span className="hidden shrink-0 text-cream/30 sm:inline">•</span>
-              <p className="truncate text-cream/92">{pageContext.banner}</p>
+              <p className="truncate text-white">{pageContext.banner}</p>
             </div>
           </div>
           <Link
