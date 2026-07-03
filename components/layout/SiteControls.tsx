@@ -38,6 +38,7 @@ export function SiteControls() {
   const { language, setLanguage, theme, toggleTheme } = useI18n();
   const [showTopButton, setShowTopButton] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const activeLanguage = useMemo(
@@ -73,6 +74,21 @@ export function SiteControls() {
     };
   }, []);
 
+  useEffect(() => {
+    const syncMobileNavState = () => {
+      setMobileNavOpen(document.body.dataset.mobileNavOpen === "true");
+    };
+
+    syncMobileNavState();
+    const observer = new MutationObserver(syncMobileNavState);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-mobile-nav-open"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const chooseLanguage = (nextLanguage: LanguageCode) => {
     setLanguage(nextLanguage);
     setLanguageMenuOpen(false);
@@ -84,7 +100,12 @@ export function SiteControls() {
 
   return (
     <>
-      <div className="fixed bottom-[calc(env(safe-area-inset-bottom)+0.9rem)] left-1/2 z-[70] flex max-w-[calc(100vw-1.5rem)] -translate-x-1/2 items-center gap-1.5 rounded-full border border-border-soft bg-background/92 p-1 shadow-card backdrop-blur-xl sm:bottom-auto sm:left-auto sm:right-4 sm:top-36 sm:translate-x-0 sm:gap-2 sm:p-1.5 md:right-6 md:top-40">
+      <div
+        className={cn(
+          "fixed bottom-[calc(env(safe-area-inset-bottom)+0.9rem)] left-1/2 z-[70] flex max-w-[calc(100vw-1.5rem)] -translate-x-1/2 items-center gap-1.5 rounded-full border border-border-soft bg-background/92 p-1 shadow-card backdrop-blur-xl transition duration-200 sm:bottom-auto sm:left-auto sm:right-4 sm:top-36 sm:translate-x-0 sm:gap-2 sm:p-1.5 md:right-6 md:top-40",
+          mobileNavOpen && "pointer-events-none opacity-0 sm:pointer-events-auto sm:opacity-100",
+        )}
+      >
         <div ref={menuRef} className="relative">
           <button
             type="button"

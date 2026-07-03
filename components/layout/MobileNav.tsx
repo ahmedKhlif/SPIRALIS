@@ -23,6 +23,7 @@ export function MobileNav() {
   const { theme } = useI18n();
   const pathname = usePathname();
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
+  const [open, setOpen] = useState(false);
   const logo = theme === "dark" ? brandAssets.logoLight : brandAssets.logoDark;
   const pageContext = getPageContext(pathname, searchParams);
 
@@ -37,8 +38,16 @@ export function MobileNav() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.dataset.mobileNavOpen = open ? "true" : "false";
+
+    return () => {
+      document.body.dataset.mobileNavOpen = "false";
+    };
+  }, [open]);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           aria-label="Ouvrir la navigation"
